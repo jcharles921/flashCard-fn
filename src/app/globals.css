@@ -2,26 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
 :root {
-  --foreground-rgb: 0, 0, 0;
+  --primary-color: #2c4251;
+  --light--text-color: #fff;
+  --light-card-color: #fff;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--light--text-color);
+  background-color: var(--primary-color);
+  font-family: "Poppins", sans-serif;
+}
+.logo {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 300;
+  color: var(--light--text-color);
+  text-align: center;
+}
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.cardInfo span {
+  height: 20px;
 }
