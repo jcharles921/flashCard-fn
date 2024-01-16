@@ -1,10 +1,33 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  gql,
+} from "@apollo/client";
 
 // import picture from "../../public/svg/picture.svg";
-
+const client = new ApolloClient({
+  uri: "https://flashcard-bn-production.up.railway.app",
+  cache: new InMemoryCache(),
+});
 const inter = Inter({ subsets: ["latin"] });
+
+client
+  .query({
+    query: gql`
+      query AllCards {
+        allCollections {
+          author
+          title
+          description
+        }
+      }
+    `,
+  })
+  .then((result) => console.log(result));
 
 export const metadata: Metadata = {
   title: "Create Next App",
